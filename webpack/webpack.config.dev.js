@@ -5,6 +5,7 @@ const path = require('path');
 const distPath = path.join(__dirname,'/../','dist' );
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 module.exports = {
     devtool: 'source-map',
@@ -26,12 +27,15 @@ module.exports = {
     },
     plugins: [
             new webpack.HotModuleReplacementPlugin(),
-            new HtmlWebpackPlugin({
-                title: 'boilerplate',    
-            }),
             new CopyWebpackPlugin([
-            {from: './assets', to: distPath}
-        ]),
+                {from: 'node_modules/font-awesome/css/font-awesome.min.css', to: distPath},
+                {from: 'node_modules/font-awesome/fonts/', to: `${distPath}/fonts/`},
+                {from: './assets', to: distPath},
+            ]),
+            new HtmlWebpackPlugin({
+                title: 'reddit',    
+            }),
+            new HtmlWebpackIncludeAssetsPlugin({ assets: 'font-awesome.min.css', append: true }),
     ],
     module: {
         loaders: [
