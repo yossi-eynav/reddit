@@ -1,11 +1,27 @@
 import React from 'react';
-import Comment from '../Comment/'
+import Comments from '../Comments/';
 import './Article.scss';
 
 class Article extends React.Component {
     
+    constructor(props) {
+        super(props);
+        this.state = {
+            isCommentsVisible: false
+        };
+        this.toggleComments = this.toggleComments.bind(this);
+    }
+
+    toggleComments() {
+        const isVisible = this.state.isCommentsVisible;
+        this.setState({
+            isCommentsVisible: !isVisible
+        })
+    }
+
     render() {
         const {
+            id,
             title,
             thumbnail,
             submitted_date,
@@ -29,14 +45,11 @@ class Article extends React.Component {
                 <div> 
                     <p>{title} </p>
                     <small> {submitted_date} by {username} </small>
-                    <p> {comments.count()} comments </p>
+                    <p onClick={() => {
+                        this.toggleComments(id);
+                        }}> {comments.count()} comments </p>
                 </div>
-                <div className="container-comments">
-                    {comments.map(comment => <Comment nestedComments={nestedComments} 
-                                                    username={comment.get('username')} 
-                                                    id={comment.get('id')}  
-                                                    description={comment.get('description')} />)}
-                </div>
+                <Comments isVisible={this.state.isCommentsVisible} comments={comments} nestedComments={nestedComments} />
             </article>
         )
     }
