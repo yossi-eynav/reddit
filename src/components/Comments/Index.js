@@ -5,6 +5,7 @@ import Comment from '../Comment/'
 class Comments extends React.Component {
 
     render() {
+        
         const {
             comments,
             nestedComments,
@@ -13,7 +14,7 @@ class Comments extends React.Component {
         = this.props;
 
         return (
-            <div className={`container-comments ${isVisible ? '': 'hidden'}`}>
+            <div className={`container-comments ${ isVisible ? '': 'hidden'}`}>
                     {comments.map(comment => <Comment nestedComments={nestedComments} 
                                                     username={comment.get('username')} 
                                                     id={comment.get('id')}  

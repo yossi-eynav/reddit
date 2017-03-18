@@ -1,6 +1,5 @@
 .article {
-    display: flex;
-    align-content: center;
+    display: block;;
     border: 1px solid rgba(0,0,0,0.6);
     margin-bottom: 15px;
     
@@ -10,25 +9,22 @@
     }
 
     .index {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        float: left;
         font-size: 20px;
         min-width: 50px;
     }
 
     img {
+        float: left;
         width: 100px;
         height: 100px;
         margin: 0 15px;
     }
 
     .votes {
+        float: left;
         display: flex;
-        flex-flow: column;
-        align-content: center;
-        justify-content: center;
-        
+                
         i {
             text-align: center;
         }

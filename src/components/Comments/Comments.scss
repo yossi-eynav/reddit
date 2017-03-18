@@ -1,4 +1,6 @@
 .container-comments {
+    display: block;
+    
     &.hidden {
         display: none;
     }
