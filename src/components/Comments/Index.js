@@ -21,7 +21,8 @@ class Comments extends React.Component {
 
         const {
             comments,
-            nestedComments
+            allComments,
+            vote
         } 
         = this.props;
 
@@ -32,12 +33,15 @@ class Comments extends React.Component {
                         this.toggleComments();
                         }}>{comments.count()} comments </a>
                     <div className="container">
-                        {this.state.showComments  &&  comments.map(comment => <Comment nestedComments={nestedComments} 
+                        {this.state.showComments  &&  comments.map(comment => <Comment allComments={allComments} 
                                                     username={comment.get('username')} 
                                                     id={comment.get('id')}  
                                                     description={comment.get('description')}
                                                     submittedDate={comment.get('submitted_date')}
-                                                    votesCount={comment.get('votes_count')} />)} 
+                                                    vote={vote}
+                                                    userVote={comment.get('userVote')}
+                                                    votesCount={comment.get('votes_count')} /> 
+                                                    )} 
                     </div>
             </div>
         );

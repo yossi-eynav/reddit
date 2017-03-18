@@ -1,12 +1,12 @@
 import React from 'react';
 import './Votes.scss';
 
-function Votes({votesCount}) {
+function Votes({votesCount, positiveVote, negativeVote}) {
     return ( 
         <p className="votes"> 
-            <i className="fa fa-arrow-up"></i>
+            <i className="fa fa-arrow-up" onClick={positiveVote}></i>
             {votesCount || 0} 
-            <i className="fa fa-arrow-down"></i>
+            <i className="fa fa-arrow-down" onClick={negativeVote}></i>
         </p>
     );
 }

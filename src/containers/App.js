@@ -8,8 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.get('currentUser'),
     articles: state.get('articles'),
-    nestedComments: state.get('nestedComments'),
-    articleComments: state.get('articleComments')
+    comments: state.get('comments')
   }
 };
 

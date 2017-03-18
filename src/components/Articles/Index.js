@@ -6,15 +6,14 @@ class Articles extends React.Component {
 
     componentDidMount() {
         this.props.fetchArticles();
-        this.props.fetchArticlesComments();
-        this.props.fetchNestedComments();
+        this.props.fetchComments();
     }
 
     render() {
         const {
             articles,
-            articleComments,
-            nestedComments
+            comments,
+            vote
         } = this.props;
 
         return (
@@ -27,8 +26,10 @@ class Articles extends React.Component {
                                                 submittedDate={article.get('submitted_date')}
                                                 username={article.get('username')}
                                                 votesCount={article.get('votes_count')}
-                                                nestedComments={nestedComments}
-                                                comments={articleComments.filter((comment)=> comment.get('article_id') === article.get('id') )} />)}
+                                                allComments={comments}
+                                                vote={vote}
+                                                userVote={article.get('userVote')}
+                                                comments={comments.filter((comment)=> comment.get('article_id') === article.get('id') )} />)}
             </div>
         )
     }

@@ -1,8 +1,7 @@
 import * as actionTypes from './actionTypes';
 import {dateParser} from '../lib/date'
 import articlesMock from '../mocks/articles';
-import articleCommentsMock from '../mocks/articles_comments';
-import nestedCommentsMock from '../mocks/nested_comments';
+import commentsMock from '../mocks/comments';
 
 function createUsername(username) {
     return {
@@ -31,19 +30,13 @@ function fetchArticles() {
     }
 }
 
-function fetchArticlesComments() {
+function fetchComments() {
       return {
-        type: actionTypes.FETCHED_ARTICLE_COMMENTS,
-        articleComments: reformatCreatedDateField(articleCommentsMock)
+        type: actionTypes.FETCHED_COMMENTS,
+        comments: reformatCreatedDateField(commentsMock)
     }
 }
 
-function fetchNestedComments() {
-      return {
-        type: actionTypes.FETCHED_NESTED_COMMENTS,
-        nestedComments: reformatCreatedDateField(nestedCommentsMock)
-    }
-}
 
 function reformatCreatedDateField(array) {
     return array.map(item => {
@@ -52,9 +45,18 @@ function reformatCreatedDateField(array) {
     })
 }
 
+function vote(dataSetType,ID, positive) {
+    return {
+        type: actionTypes.VOTE,
+        positive,
+        ID,
+        dataSetType
+    }
+}
+
 export {
     createUsername,
     fetchArticles,
-    fetchArticlesComments,
-    fetchNestedComments
+    fetchComments,
+    vote
 }

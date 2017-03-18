@@ -15,23 +15,21 @@ class App extends React.Component {
         const {
             createUsername,
             fetchArticles,
-            fetchArticlesComments,
-            fetchNestedComments,
+            fetchComments,
             articles,
-            articleComments,
-            nestedComments
+            comments,
+            vote
         } = this.props;
 
         return (
             <div>
                 <Header />
                     {this.isAuthenticated() ? 
-                        <Articles fetchArticlesComments={fetchArticlesComments}
-                            fetchNestedComments={fetchNestedComments}
+                        <Articles fetchComments={fetchComments}
                             fetchArticles={fetchArticles}
                             articles={articles}
-                            articleComments={articleComments}
-                            nestedComments={nestedComments} /> :
+                            comments={comments}
+                            vote={vote} /> :
                         <LoginWindow createUsername={createUsername} />
                     }
             </div>

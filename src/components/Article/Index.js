@@ -6,6 +6,7 @@ import './Article.scss';
 
 class Article extends React.Component {
     
+
     render() {
 
         const {
@@ -16,7 +17,9 @@ class Article extends React.Component {
             username,
             votesCount,
             comments,
-            nestedComments,
+            allComments,
+            vote,
+            userVote,
             index
         } 
         = this.props;
@@ -24,12 +27,18 @@ class Article extends React.Component {
         return (
             <article className="article">
                 <small className="index"> {index} </small> 
-                <Votes votesCount={votesCount} />
+                <Votes votesCount={votesCount + (userVote || 0)} 
+                 negativeVote={() => {
+                    vote('articles', id ,false)
+                }} 
+                positiveVote={() => {
+                    vote('articles' ,id ,true)
+                }} />
                 <img src={thumbnail} alt={title} />
                 <section> 
                     <a href="#!" className="title">{title} </a>
                     <small>Submitted on {dateFormatter(submittedDate)} by <span className="username">{username}</span> </small>
-                    <Comments comments={comments} nestedComments={nestedComments} />
+                    <Comments vote={vote} comments={comments} allComments={allComments} />
                 </section>
             </article>
         )
