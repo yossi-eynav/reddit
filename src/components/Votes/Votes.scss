@@ -1,0 +1,13 @@
+.votes {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 50px;
+        float: left;
+        font-size: 17px;        
+
+        i {
+            text-align: center;
+        }
+}

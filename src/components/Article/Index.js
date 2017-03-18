@@ -1,32 +1,20 @@
 import React from 'react';
 import Comments from '../Comments/';
+import Votes from '../Votes/'
+import {dateParser} from '../../lib/dateParser';
 import './Article.scss';
 
 class Article extends React.Component {
     
-    constructor(props) {
-        super(props);
-        this.state = {
-            isCommentsVisible: false
-        };
-        this.toggleComments = this.toggleComments.bind(this);
-    }
-
-    toggleComments() {
-        const isVisible = this.state.isCommentsVisible;
-        this.setState({
-            isCommentsVisible: !isVisible
-        })
-    }
-
     render() {
+
         const {
             id,
             title,
             thumbnail,
-            submitted_date,
+            submittedDate,
             username,
-            votes_count,
+            votesCount,
             comments,
             nestedComments,
             index
@@ -36,20 +24,13 @@ class Article extends React.Component {
         return (
             <article className="article">
                 <small className="index"> {index} </small> 
-                <p className="votes"> 
-                    <i className="fa fa-arrow-up"></i>
-                    {votes_count} 
-                    <i className="fa fa-arrow-down"></i>
-                </p>
+                <Votes votesCount={votesCount} />
                 <img src={thumbnail} alt={title} />
-                <div> 
-                    <p>{title} </p>
-                    <small> {submitted_date} by {username} </small>
-                    <p onClick={() => {
-                        this.toggleComments(id);
-                        }}> {comments.count()} comments </p>
-                </div>
-                <Comments isVisible={this.state.isCommentsVisible} comments={comments} nestedComments={nestedComments} />
+                <section> 
+                    <a href="#!" className="title">{title} </a>
+                    <small>Submitted on {dateParser(submittedDate)} by <span className="username">{username}</span> </small>
+                    <Comments comments={comments} nestedComments={nestedComments} />
+                </section>
             </article>
         )
     }

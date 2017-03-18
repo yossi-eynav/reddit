@@ -24,9 +24,9 @@ class Articles extends React.Component {
                                                 title={article.get('title')}
                                                 id={article.get('id')}
                                                 thumbnail={article.get('thumbnail')}
-                                                submitted_date={article.get('submitted_date')}
+                                                submittedDate={article.get('submitted_date')}
                                                 username={article.get('username')}
-                                                votes_count={article.get('votes_count')}
+                                                votesCount={article.get('votes_count')}
                                                 nestedComments={nestedComments}
                                                 comments={articleComments.filter((comment)=> comment.get('article_id') === article.get('id') )} />)}
             </div>

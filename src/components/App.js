@@ -2,6 +2,7 @@ import React from 'react';
 import Articles from './Articles/';
 import LoginWindow from './LoginWindow';
 import Header from './Header/'
+import './App.scss';
 
 class App extends React.Component {
 

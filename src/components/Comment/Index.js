@@ -1,41 +1,36 @@
 import React from 'react';
-import './Comment.scss';
 import Comments from '../Comments/'
+import Votes from '../Votes/'
+import './Comment.scss';
 
 class Comment extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.toggleComments = this.toggleComments.bind(this);
-        this.state = {
-            showComments: true
-        }
+    render() {
+        const {
+            nestedComments,
+            votesCount,
+            submittedDate,
+            description, 
+            username, 
+            id
+        } = this.props;
+
+        const filteredNestedComments = nestedComments.filter(comment => comment.get('comment_id') === id)
+
+        return (
+            <div className="comment">
+                <Votes votesCount={votesCount} />
+                <div className="body"> 
+                    <p className="description"> {description} </p>
+                    <small> Submitted on {submittedDate} by <span className="username"> {username} </span> </small>
+                    <Comments
+                        comments={filteredNestedComments}
+                        nestedComments={nestedComments}
+                    />
+                </div>
+            </div>
+        );
     }
-
-    toggleComments() {
-        const showComments = this.state.showComments;
-        this.setState({showComments: !showComments});
-    }
-  render() {
-    const {nestedComments, description, username, id} = this.props;
-
-    const filteredNestedComments = nestedComments.filter(comment => comment.get('comment_id') === id)
-
-    return (
-        <div className="comment">
-            <button onClick={this.toggleComments}>-/+</button>
-            <small>{filteredNestedComments.count()}</small>
-            <small> {username} </small>
-            <p> {description} </p>
-            
-            <Comments
-                comments={filteredNestedComments}
-                nestedComments={nestedComments}
-                isVisible={this.state.showComments}
-             />
-        </div>
-    );
-  }
 }
 
 export default Comment;

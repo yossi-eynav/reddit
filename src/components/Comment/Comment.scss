@@ -1,4 +1,26 @@
 .comment {
     display: block;
-    padding: 5px 20px;
+    padding: 10px 20px;
+    border-left: 1px solid #ececec;
+    width: 500px;
+    
+    .description {
+        color: #000;
+        font-size: 14px;
+        line-height: 130%;
+        margin: 0;
+    }
+
+    small {
+        font-size: 12px;
+    }
+
+    .body {
+        width: 80%;
+        margin-left: 50px;
+    }
+
+    .username {
+        font-weight: 500;
+    }
 }
