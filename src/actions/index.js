@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import {dateParser} from '../lib/date'
 import articlesMock from '../mocks/articles';
 import articleCommentsMock from '../mocks/articles_comments';
 import nestedCommentsMock from '../mocks/nested_comments';
@@ -26,22 +27,29 @@ function createUsername(username) {
 function fetchArticles() {
       return {
         type: actionTypes.FETCHED_ARTICLES,
-        articles: articlesMock
+        articles: reformatCreatedDateField(articlesMock)
     }
 }
 
 function fetchArticlesComments() {
       return {
         type: actionTypes.FETCHED_ARTICLE_COMMENTS,
-        articleComments: articleCommentsMock
+        articleComments: reformatCreatedDateField(articleCommentsMock)
     }
 }
 
 function fetchNestedComments() {
       return {
         type: actionTypes.FETCHED_NESTED_COMMENTS,
-        nestedComments: nestedCommentsMock
+        nestedComments: reformatCreatedDateField(nestedCommentsMock)
     }
+}
+
+function reformatCreatedDateField(array) {
+    return array.map(item => {
+        item.submitted_date = dateParser(item.submitted_date);
+        return item
+    })
 }
 
 export {

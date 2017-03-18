@@ -18,6 +18,11 @@ const reducers = (state = initialState , action) => {
       return state.set('articleComments', Immutable.fromJS(action.articleComments))
     case actionTypes.FETCHED_NESTED_COMMENTS:
       return state.set('nestedComments', Immutable.fromJS(action.nestedComments))  
+    case actionTypes.VOTE_ARTICLE:
+    // TODO: finish writing the reducers.
+      return state.update('nestedComments', (nestedComments) => {
+        nestedComments.update()
+      })
     default:
       return state
   }
