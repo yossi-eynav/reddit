@@ -19,7 +19,8 @@ class Articles extends React.Component {
 
         return (
             <div className="container-articles"> 
-                {articles.map((article) => <Article key={article.get('id')}
+                {articles.map((article, index) => <Article key={article.get('id')}
+                                                index={index}
                                                 title={article.get('title')}
                                                 id={article.get('id')}
                                                 thumbnail={article.get('thumbnail')}

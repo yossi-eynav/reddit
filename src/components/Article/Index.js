@@ -19,14 +19,19 @@ class Article extends React.Component {
 
         return (
             <article className="article">
-                <i className="fa fa-address-book"></i>
-                <p> {index} </p>
-                <p> {votes_count} </p>
+                <small className="index"> {index} </small> 
+                <p className="votes"> 
+                    <i className="fa fa-arrow-up"></i>
+                    {votes_count} 
+                    <i className="fa fa-arrow-down"></i>
+                </p>
                 <img src={thumbnail} alt={title} />
-                <p>{title} </p>
-                <p> {submitted_date} by {username} </p>
-                <p> {comments.count()} comments </p>
-                <div>
+                <div> 
+                    <p>{title} </p>
+                    <small> {submitted_date} by {username} </small>
+                    <p> {comments.count()} comments </p>
+                </div>
+                <div className="container-comments">
                     {comments.map(comment => <Comment nestedComments={nestedComments} 
                                                     username={comment.get('username')} 
                                                     id={comment.get('id')}  
