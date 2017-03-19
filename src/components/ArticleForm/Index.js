@@ -5,7 +5,6 @@ const DEFAULT_IMAGE = 'https://unsplash.it/200?random'
 
 class ArticleForm extends React.Component {
 
-    
     constructor(props) {
         super(props);
         this.saveBtnHandler = this.saveBtnHandler.bind(this);

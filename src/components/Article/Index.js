@@ -29,17 +29,18 @@ class Article extends React.Component {
             <article className="article">
                 <small className="index"> {index} </small> 
                 <Votes votesCount={votesCount + (userVote || 0)} 
-                 negativeVote={() => {
-                    vote('articles', id ,false)
-                }} 
-                positiveVote={() => {
-                    vote('articles' ,id ,true)
-                }} />
+                    negativeVote={() => { vote('articles', id ,false) }} 
+                    positiveVote={() => { vote('articles' ,id ,true) }} />
                 <img src={thumbnail} alt={title} />
                 <section> 
                     <a href="#!" className="title">{title} </a>
                     <small>Submitted on {dateFormatter(submittedDate)} by <span className="username">{username}</span> </small>
-                    <Comments entityID={id} entityType="article" vote={vote} comments={comments} allComments={allComments} showCommentFormModal={showCommentFormModal} />
+                    <Comments entityID={id}
+                                entityType="article" 
+                                vote={vote} 
+                                comments={comments} 
+                                allComments={allComments} 
+                                showCommentFormModal={showCommentFormModal} />
                 </section>
             </article>
         )

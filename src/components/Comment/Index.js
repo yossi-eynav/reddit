@@ -24,12 +24,8 @@ class Comment extends React.Component {
         return (
             <div className="comment">
                 <Votes votesCount={votesCount + (userVote || 0) } 
-                   negativeVote={() => {
-                    vote('comments', id ,false)
-                }} 
-                positiveVote={() => {
-                    vote('comments' ,id ,true)
-                }} />
+                   negativeVote={() => { vote('comments', id ,false) }} 
+                   positiveVote={() => { vote('comments' ,id ,true) }} />
                 <div className="body"> 
                     <p className="description"> {description} </p>
                     <small> Submitted on {dateFormatter(submittedDate)} by <span className="username"> {username} </span> </small>
@@ -40,8 +36,7 @@ class Comment extends React.Component {
                         allComments={allComments}
                         vote={vote}
                         userVote={userVote}
-                        showCommentFormModal={showCommentFormModal}
-                    />
+                        showCommentFormModal={showCommentFormModal} />
                 </div>
             </div>
         );

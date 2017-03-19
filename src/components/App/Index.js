@@ -57,7 +57,9 @@ class App extends React.Component {
             <div>
                 <Header setCurrentPage={setCurrentPage}/>
                 {this.router()}
-                {commentFormModal && <CommentForm createComment={createComment} commentFormModal={commentFormModal} hideCommentFormModal={hideCommentFormModal}/>}
+                {commentFormModal && <CommentForm createComment={createComment}
+                                                  commentFormModal={commentFormModal} 
+                                                  hideCommentFormModal={hideCommentFormModal}/> }
             </div>
         )
     }

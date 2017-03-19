@@ -30,16 +30,25 @@ class Comments extends React.Component {
 
         return (
             <div className="comments">
-                    <a href="#!" className="bold" onClick={(e)=> {
-                        e.preventDefault();
-                        this.toggleComments();
-                        }}>{comments.count()} comments </a>
-                    <a href="#!" className="bold"  onClick={(e)=> {
-                        e.preventDefault();
-                        showCommentFormModal(entityType, entityID);
-                    }}> - Add a comment </a>
+                    <a href="#!" 
+                        className="bold" 
+                        onClick={(e)=> {
+                            e.preventDefault();
+                            this.toggleComments();
+                            }}>
+                            { comments.count()} comments 
+                    </a>
+
+                    <a href="#!" 
+                        className="bold"  
+                        onClick={(e)=> {
+                            e.preventDefault();
+                            showCommentFormModal(entityType, entityID);
+                        }}> - Add a comment 
+                    </a>
                     <div className="container">
-                        {this.state.showComments  &&  comments.map(comment => <Comment allComments={allComments} 
+                        { this.state.showComments  &&  
+                        comments.map(comment => <Comment allComments={allComments} 
                                                     key={comment.get('id')}
                                                     username={comment.get('username')} 
                                                     id={comment.get('id')}  
@@ -48,8 +57,7 @@ class Comments extends React.Component {
                                                     vote={vote}
                                                     showCommentFormModal={showCommentFormModal}
                                                     userVote={comment.get('userVote')}
-                                                    votesCount={comment.get('votes_count')} /> 
-                                                    )} 
+                                                    votesCount={comment.get('votes_count')} />  )} 
                     </div>
             </div>
         );
