@@ -15,7 +15,8 @@ class Comment extends React.Component {
             username, 
             id,
             vote,
-            userVote
+            userVote,
+            showCommentFormModal
         } = this.props;
 
         const filteredComments = allComments.filter(comment => comment.get('comment_id') === id)
@@ -33,10 +34,13 @@ class Comment extends React.Component {
                     <p className="description"> {description} </p>
                     <small> Submitted on {dateFormatter(submittedDate)} by <span className="username"> {username} </span> </small>
                     <Comments
+                        entityID={id}
+                        entityType={'comment'}
                         comments={filteredComments}
                         allComments={allComments}
                         vote={vote}
                         userVote={userVote}
+                        showCommentFormModal={showCommentFormModal}
                     />
                 </div>
             </div>

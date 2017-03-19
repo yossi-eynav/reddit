@@ -8,7 +8,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.get('currentUser'),
     articles: state.get('articles'),
-    comments: state.get('comments')
+    comments: state.get('comments'),
+    currentPage: state.get('currentPage'),
+    commentFormModal: state.get('commentFormModal')
   }
 };
 

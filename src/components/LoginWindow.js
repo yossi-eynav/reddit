@@ -18,10 +18,12 @@ class LoginWindow extends React.Component {
     }
 
     render() {
-        return (<div className="login-window">
-            <input ref="username" placeholder="Enter a username and click send" />
+        return (
+        <div className="login-window">
+            <input ref="username" placeholder="Enter a username and click send" autoFocus />
             <a className="send" href="#!" onClick={this.btnOnClickHandler}> 
-                send </a> 
+                <i className="fa fa-paper-plane"></i> 
+            </a> 
         </div>)
     }
 

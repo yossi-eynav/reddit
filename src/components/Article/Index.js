@@ -18,6 +18,7 @@ class Article extends React.Component {
             votesCount,
             comments,
             allComments,
+            showCommentFormModal,
             vote,
             userVote,
             index
@@ -38,7 +39,7 @@ class Article extends React.Component {
                 <section> 
                     <a href="#!" className="title">{title} </a>
                     <small>Submitted on {dateFormatter(submittedDate)} by <span className="username">{username}</span> </small>
-                    <Comments vote={vote} comments={comments} allComments={allComments} />
+                    <Comments entityID={id} entityType="article" vote={vote} comments={comments} allComments={allComments} showCommentFormModal={showCommentFormModal} />
                 </section>
             </article>
         )

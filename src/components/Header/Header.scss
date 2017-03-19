@@ -2,8 +2,16 @@
     background-color: #899bff;
     height: 50px;
     color: white;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 50px;
     padding-left: 20px;
     margin-bottom: 20px;
+
+    a {
+        padding: 0 20px;
+
+        &:last-of-type {
+            float: right;
+        }
+    }
 }

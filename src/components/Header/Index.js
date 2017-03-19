@@ -1,10 +1,14 @@
 import React from 'react';
 import './Header.scss';
 
-function Header() {
+function Header({setCurrentPage}) {
+
     return (
         <header className="header-main">
-             Autoddit
+             <a href="#!" onClick={setCurrentPage}>Autoddit</a>
+             <a href="#!" onClick={() => {
+                 setCurrentPage('articleForm')
+                 }}> CREATE A NEW ARTICLE </a>
         </header>
     );
 }

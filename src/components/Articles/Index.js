@@ -5,15 +5,22 @@ import './Articles.scss'
 class Articles extends React.Component {
 
     componentDidMount() {
-        this.props.fetchArticles();
-        this.props.fetchComments();
+        
+        const {
+            articles,
+            comments
+        } = this.props;
+
+        articles.count() || this.props.fetchArticles();
+        comments.count() || this.props.fetchComments();
     }
 
     render() {
         const {
             articles,
             comments,
-            vote
+            vote,
+            showCommentFormModal
         } = this.props;
 
         return (
@@ -27,6 +34,7 @@ class Articles extends React.Component {
                                                 username={article.get('username')}
                                                 votesCount={article.get('votes_count')}
                                                 allComments={comments}
+                                                showCommentFormModal={showCommentFormModal}
                                                 vote={vote}
                                                 userVote={article.get('userVote')}
                                                 comments={comments.filter((comment)=> comment.get('article_id') === article.get('id') )} />)}

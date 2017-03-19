@@ -2,6 +2,7 @@ import * as actionTypes from './actionTypes';
 import {dateParser} from '../lib/date'
 import articlesMock from '../mocks/articles';
 import commentsMock from '../mocks/comments';
+import moment from 'moment';
 
 function createUsername(username) {
     return {
@@ -45,6 +46,13 @@ function reformatCreatedDateField(array) {
     })
 }
 
+function setCurrentPage(currentPage) {
+    return {
+        type: actionTypes.SET_CURRENT_PAGE,
+        currentPage
+    }
+}
+
 function vote(dataSetType,ID, positive) {
     return {
         type: actionTypes.VOTE,
@@ -54,9 +62,45 @@ function vote(dataSetType,ID, positive) {
     }
 }
 
+function createArticle(title ,imageDataURL) {
+    return {
+        type: actionTypes.CREATE_ARTICLE,
+        title,
+        imageDataURL
+    }
+}
+
+function showCommentFormModal(entityType, entityID) {
+    return {
+        type: actionTypes.SHOW_COMMENT_FORM_MODAL,
+        entityType,
+        entityID
+    }
+}
+
+function hideCommentFormModal() {
+    return {
+        type: actionTypes.HIDE_COMMENT_FORM_MODAL
+    }
+}
+
+function createComment(entityID, entityType, description) {
+    return {
+        type: actionTypes.CREATE_COMMENT,
+        entityID,
+        entityType,
+        description
+    }
+}
+
 export {
     createUsername,
     fetchArticles,
     fetchComments,
+    setCurrentPage,
+    createArticle,
+    showCommentFormModal,
+    hideCommentFormModal,
+    createComment,
     vote
 }

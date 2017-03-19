@@ -1,0 +1,24 @@
+.article-form {
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    
+    textarea {
+        padding: 10px;
+        width: 100%;
+        min-height: 50px;
+        box-sizing: border-box;
+        font-size: 16px;
+        line-height: 100%;
+    }
+
+    button {
+        margin-top:30px;
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        line-height: 100%;
+        background: #42a20c;
+        color: white;
+    }
+}
