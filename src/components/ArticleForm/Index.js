@@ -11,10 +11,10 @@ class ArticleForm extends React.Component {
     }
 
     getInputFileDataURL() {
-        return new Promise((fullfil, rejected) => {
+        return new Promise((fullfil) => {
             const input = this.refs.file;
             if (!input.files && !input.files[0]) { 
-                rejected();
+                fullfil(DEFAULT_IMAGE);
             }
 
             try {
@@ -55,7 +55,7 @@ class ArticleForm extends React.Component {
                 <button onClick={(e) => {
                     e.preventDefault();
                     this.saveBtnHandler();
-                }}> Save </button>
+                }}> SAVE <i className="fa fa-floppy-o"></i> </button>
             </form>
         );
     }

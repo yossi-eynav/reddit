@@ -2,7 +2,6 @@ import * as actionTypes from './actionTypes';
 import {dateParser} from '../lib/date'
 import articlesMock from '../mocks/articles';
 import commentsMock from '../mocks/comments';
-import moment from 'moment';
 
 function createUsername(username) {
     return {
@@ -11,25 +10,25 @@ function createUsername(username) {
     }
 }
 
-// function fetchArticles(offset = 0, limit = -1) {
-//     return (dispatch, getState) => {
-//         dispatch({type: actionTypes.FETCHING_DATA});
-//         return fetch('https://api.autoddit.com/v1/articles')
-//             .then((articles) => {
-//                 dispatch({type: actionTypes.FETCHED_ARTICLES, articles});
-//             })
-//             .catch(e => {
-//                 alert(e);
-//             })
-//     }
-// }
-
 function fetchArticles() {
       return {
         type: actionTypes.FETCHED_ARTICLES,
         articles: reformatCreatedDateField(articlesMock)
     }
 }
+
+/*
+function fetchArticles(offset = 0, limit = -1) {
+    return (dispatch, getState) => {
+        dispatch({type: actionTypes.FETCHING_DATA});
+        return fetch('https://api.autoddit.com/v1/articles')
+            .then((articles) => {
+                dispatch({type: actionTypes.FETCHED_ARTICLES, articles});
+            })
+            .catch(e => {
+                alert(e);
+})
+*/
 
 function fetchComments() {
       return {

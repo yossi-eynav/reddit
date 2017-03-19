@@ -8,6 +8,12 @@ const initialState = Immutable.Map({
   comments: Immutable.List()
 });
 
+function getBiggestIDInList(list) {
+    return list.sort((a,b) => a.get('id') < b.get('id') ? 1 : -1)
+                .first()
+                .get('id')
+}
+
 const reducers = (state = initialState , action) => {
   switch (action.type) {
     case actionTypes.CREATE_USER_NAME:
@@ -42,10 +48,8 @@ const reducers = (state = initialState , action) => {
       return state.set('currentPage', action.currentPage);
     
     case actionTypes.CREATE_ARTICLE:
-    let articleID =  state.get('articles')
-                            .sort((a,b) => a.get('id') < b.get('id') ? 1 : -1)
-                            .first()
-                            .get('id')
+    let articleID =  getBiggestIDInList(state.get('articles'))
+                            
       const article = {
         title: action.title,
         username: state.getIn(['currentUser','username']),
@@ -67,11 +71,8 @@ const reducers = (state = initialState , action) => {
 
     case actionTypes.CREATE_COMMENT:
       return state.update('comments', (comments) => {
-          let commentID =  state.get('comments')
-                            .sort((a,b) => a.get('id') < b.get('id') ? 1 : -1)
-                            .first()
-                            .get('id')
-              
+        let commentID =  getBiggestIDInList(state.get('comments'))
+
         const comment = {
           votes_count: 0,
           submitted_date: moment().toISOString(),
