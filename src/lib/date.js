@@ -14,6 +14,12 @@ const dateParser = (rawString) => {
    return moment().add(-hoursAgo, 'hours').toISOString();
 };
 
+/**
+ * 
+ * Convert ISOString into the default date format.
+ * @param {any} ISOString
+ * @returns
+ */
 const dateFormatter = (ISOString) => {
   return moment(ISOString).format('MMM dd, YYYY HH:MM')
 }
