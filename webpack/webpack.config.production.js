@@ -29,6 +29,11 @@ module.exports = {
             new HtmlWebpackPlugin({
                 title: 'reddit',    
             }),
+            new webpack.DefinePlugin({
+                'process.env': {
+                    'NODE_ENV': JSON.stringify('production')
+                }
+            }),
             new HtmlWebpackIncludeAssetsPlugin({ assets: 'font-awesome.min.css', append: true })
     ],
     module: {

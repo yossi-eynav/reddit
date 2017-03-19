@@ -1,15 +1,15 @@
 {
-  "name": "react-redux-webpack-boilerplate",
+  "name": "reddit",
   "version": "1.0.0",
-  "description": "",
+  "description": "reddit",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node webpack/webpack.server.dev",
     "build": "webpack --config webpack/webpack.config.dev.js --watch",
-    "build:prod": "webpack --config webpack/webpack.config.production.js --watch"
+    "build:prod": "webpack --config webpack/webpack.config.production.js"
   },
-  "author": "",
+  "author": "yossi-eynav",
   "license": "ISC",
   "dependencies": {
     "css-loader": "^0.26.1",
