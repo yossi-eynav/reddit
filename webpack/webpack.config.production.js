@@ -3,6 +3,7 @@ const path = require('path');
 const distPath = path.join(__dirname, '/../', 'dist' );
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 
 
 module.exports = {
@@ -20,13 +21,15 @@ module.exports = {
             new webpack.optimize.OccurrenceOrderPlugin(),
             new webpack.optimize.UglifyJsPlugin(),
             new webpack.optimize.DedupePlugin(),
+            new CopyWebpackPlugin([
+                {from: 'node_modules/font-awesome/css/font-awesome.min.css', to: distPath},
+                {from: 'node_modules/font-awesome/fonts/', to: `${distPath}/fonts/`},
+                {from: './assets', to: distPath},
+            ]),
             new HtmlWebpackPlugin({
-                title: 'boilerplate',    
+                title: 'reddit',    
             }),
-            new CopyWebpackPlugin([{
-                from: './assets', to: distPath
-            }
-        ]),
+            new HtmlWebpackIncludeAssetsPlugin({ assets: 'font-awesome.min.css', append: true })
     ],
     module: {
         loaders: [
