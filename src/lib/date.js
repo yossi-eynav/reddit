@@ -21,7 +21,7 @@ const dateParser = (rawString) => {
  * @returns
  */
 const dateFormatter = (ISOString) => {
-  return moment(ISOString).format('MMM dd, YYYY HH:MM')
+  return moment(ISOString).format('MMM dd, YYYY HH:mm')
 }
 
 export {
