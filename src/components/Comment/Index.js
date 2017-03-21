@@ -8,7 +8,7 @@ class Comment extends React.Component {
 
     render() {
         const {
-            allComments,
+            nestedComments,
             votesCount,
             submittedDate,
             description, 
@@ -19,7 +19,7 @@ class Comment extends React.Component {
             showCommentFormModal
         } = this.props;
 
-        const filteredComments = allComments.filter(comment => comment.get('comment_id') === id)
+        const filteredComments = nestedComments.filter(comment => comment.get('comment_id') === id)
 
         return (
             <div className="comment">
@@ -33,7 +33,7 @@ class Comment extends React.Component {
                         entityID={id}
                         entityType={'comment'}
                         comments={filteredComments}
-                        allComments={allComments}
+                        nestedComments={nestedComments}
                         vote={vote}
                         userVote={userVote}
                         showCommentFormModal={showCommentFormModal} />

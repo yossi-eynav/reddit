@@ -32,7 +32,7 @@ class Articles extends React.Component {
                                                     submittedDate={article.get('submitted_date')}
                                                     username={article.get('username')}
                                                     votesCount={article.get('votes_count')}
-                                                    allComments={comments}
+                                                    nestedComments={comments.filter((comment)=> comment.has('comment_id'))}
                                                     showCommentFormModal={showCommentFormModal}
                                                     vote={vote}
                                                     userVote={article.get('userVote')}

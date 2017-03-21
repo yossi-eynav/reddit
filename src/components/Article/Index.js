@@ -17,7 +17,7 @@ class Article extends React.Component {
             username,
             votesCount,
             comments,
-            allComments,
+            nestedComments,
             showCommentFormModal,
             vote,
             userVote,
@@ -39,7 +39,7 @@ class Article extends React.Component {
                                 entityType="article" 
                                 vote={vote} 
                                 comments={comments} 
-                                allComments={allComments} 
+                                nestedComments={nestedComments} 
                                 showCommentFormModal={showCommentFormModal} />
                 </section>
             </article>

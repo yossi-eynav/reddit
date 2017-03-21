@@ -20,7 +20,7 @@ class Comments extends React.Component {
     render() {
         const {
             comments,
-            allComments,
+            nestedComments,
             vote,
             showCommentFormModal,
             entityID,
@@ -48,7 +48,7 @@ class Comments extends React.Component {
                     </a>
                     <div className="container">
                         { this.state.showComments  &&  
-                        comments.map(comment => <Comment allComments={allComments} 
+                        comments.map(comment => <Comment nestedComments={nestedComments} 
                                                     key={comment.get('id')}
                                                     username={comment.get('username')} 
                                                     id={comment.get('id')}  
